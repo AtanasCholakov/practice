@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);/*
     System.out.println("Username: ");
     String username = scanner.nextLine();
     System.out.println("Password: ");
@@ -78,7 +78,7 @@ public class Main {
     // Ex2
     System.out.println("\nEx2\n");
     int[] numbers = {2, 5, 123, 16, -123};
-    System.out.println("Result: " + sum(numbers));
+    System.out.println("Result: " + sum(numbers));*/
     // Ex3
     System.out.println("\nEx3\n");
     int asd = 1;
@@ -93,6 +93,7 @@ public class Main {
     for (int i = 0; i < list.size(); i++) {
         if (list.get(i).length() <= 4) {
             list.remove(i);
+            i--;
         }
     }
 
