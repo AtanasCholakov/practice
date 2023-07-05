@@ -102,6 +102,7 @@ public class zadachi_den3 {
             list.add(scanner.nextLine());
         }
         System.out.println(change(list));
+
     }
 
 }
