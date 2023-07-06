@@ -5,5 +5,6 @@ public class SportCar extends Vehicle{
 
     public SportCar(double fuel, int horsePower) {
         super(fuel, horsePower);
+        this.setFuelConsumption(DEFAULT_FUEL_CONSUMPTION);
     }
 }
