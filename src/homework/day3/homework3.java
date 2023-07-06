@@ -3,7 +3,7 @@ package homework.day3;
 import java.util.Scanner;
 
 public class homework3 {
-    public static int lowest(int[] numbers) {
+    public static int getLowestNumber(int[] numbers) {
         int lowest = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
             if (lowest > numbers[i]) {
@@ -13,7 +13,7 @@ public class homework3 {
         return lowest;
     }
 
-    public static void trueOrFalse(int number) {
+    public static void checkIfNumberIsOdd(int number) {
         if (number % 2 == 0) {
             System.out.println("true");
         }
@@ -23,6 +23,7 @@ public class homework3 {
     }
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter numbers: ");
         String input = scanner.nextLine();
@@ -31,10 +32,9 @@ public class homework3 {
         for (int i = 0; i < inputArr.length; i++) {
             numbers[i] = Integer.valueOf(inputArr[i]);
         }
-        System.out.println("Lowest number: " + lowest(numbers));
-
+        System.out.println("Lowest number: " + getLowestNumber(numbers));
         System.out.println("Enter number: ");
         int num = scanner.nextInt();
-        trueOrFalse(num);
+        checkIfNumberIsOdd(num);
     }
 }
