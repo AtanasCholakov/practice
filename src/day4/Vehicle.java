@@ -6,6 +6,12 @@ public class Vehicle {
     private double fuel;
     private int horsePower;
 
+    public Vehicle(double fuel, int horsePower) {
+        this.fuel = fuel;
+        this.horsePower = horsePower;
+        this.fuelConsumption = DEFAULT_FUEL_CONSUMPTION;
+    }
+
     public double getFuelConsumption() {
         return this.fuelConsumption;
     }
@@ -41,12 +47,6 @@ public class Vehicle {
             this.horsePower = horsePower;
         }
 
-    }
-
-    public Vehicle(double fuel, int horsePower) {
-        this.fuel = fuel;
-        this.horsePower = horsePower;
-        this.fuelConsumption = DEFAULT_FUEL_CONSUMPTION;
     }
 
     public void drive(double kilometers) {
