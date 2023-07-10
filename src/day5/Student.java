@@ -1,10 +1,12 @@
 package day5;
 
+import java.util.List;
+
 public class Student extends Person {
 
     private int clas;
     private int numberInClass;
-    private double[] grade;
+    private List<gradeForSubject> gradesForSubject;
 
     public int getClas() {
         return clas;
@@ -14,8 +16,8 @@ public class Student extends Person {
         return numberInClass;
     }
 
-    public double[] getGrade() {
-        return grade;
+    public List<gradeForSubject> getGradesForSubject() {
+        return gradesForSubject;
     }
 
     public void setClas(int clas) {
@@ -26,14 +28,14 @@ public class Student extends Person {
         this.numberInClass = numberInClass;
     }
 
-    public void setGrade(double[] grade) {
-        this.grade = grade;
+    public void setGradesForSubject(List<gradeForSubject> gradesForSubject) {
+        this.gradesForSubject = gradesForSubject;
     }
 
-    public Student(String name, String gender, int ID, int clas, int numberInClass, double[] grade) {
+    public Student(String name, String gender, int ID, int clas, int numberInClass, List<gradeForSubject> gradesForSubject) {
         super(name, gender, ID);
         this.clas = clas;
         this.numberInClass = numberInClass;
-        this.grade = grade;
+        this.gradesForSubject = gradesForSubject;
     }
 }
