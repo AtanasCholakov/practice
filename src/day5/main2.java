@@ -65,114 +65,114 @@ public class main2 {
         return studentName;
     }
 
-        public static double averageSalary(List dataBase) {
-            DecimalFormat df = new DecimalFormat("#.##");
-            double salarySum = 0;
-            int divider = 0;
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Teacher) {
-                    salarySum += ((Teacher) dataBase.get(i)).getSalary();
-                    divider++;
-                }
+    public static double averageSalary(List dataBase) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        double salarySum = 0;
+        int divider = 0;
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Teacher) {
+                salarySum += ((Teacher) dataBase.get(i)).getSalary();
+                divider++;
             }
-            return Math.round((salarySum / divider) * 100) / 100.0;
         }
+        return Math.round((salarySum / divider) * 100) / 100.0;
+    }
 
-        public static double averageGradeOfStudent(List dataBase, String studentName) {
-            double gradeSum = 0;
-            int divider = 0;
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Student) {
-                    if (((Student) dataBase.get(i)).getName() == studentName) {
-                        for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size() ; j++) {
-                            gradeSum += ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
-                            divider++;
-                        }
-                    }
-                }
-            }
-            return Math.round((gradeSum / divider) * 100) / 100;
-        }
-
-        public static double averageGradeOfClass(List dataBase) {
-            DecimalFormat df = new DecimalFormat("#.##");
-            double gradeSum = 0;
-            int divider = 0;
-            double avgGrade = 0;
-            int divider2 = 0;
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Student) {
-                    for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size() ; j++) {
+    public static double averageGradeOfStudent(List dataBase, String studentName) {
+        double gradeSum = 0;
+        int divider = 0;
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Student) {
+                if (((Student) dataBase.get(i)).getName() == studentName) {
+                    for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size(); j++) {
                         gradeSum += ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
                         divider++;
                     }
-                    avgGrade += Math.round((gradeSum / divider) * 100) / 100.0;
-                    gradeSum = 0;
-                    divider = 0;
-                    divider2++;
                 }
             }
-            return Math.round((avgGrade / divider2) * 100) / 100.0;
         }
+        return Math.round((gradeSum / divider) * 100) / 100;
+    }
 
-        public static String highestStudentGradeForSubject (List dataBase, String studentName) {
-            double highestGrade = 2;
-            String subjectName = "";
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Student) {
-                    if (((Student) dataBase.get(i)).getName() == studentName) {
-                        for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size(); j++) {
-                            if (highestGrade < ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades()) {
-                                highestGrade = ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
-                                subjectName = ((Student) dataBase.get(i)).getGradesForSubject().get(j).getSubject();
-                            }
-                        }
-                    }
-
+    public static double averageGradeOfClass(List dataBase) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        double gradeSum = 0;
+        int divider = 0;
+        double avgGrade = 0;
+        int divider2 = 0;
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Student) {
+                for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size(); j++) {
+                    gradeSum += ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
+                    divider++;
                 }
+                avgGrade += Math.round((gradeSum / divider) * 100) / 100.0;
+                gradeSum = 0;
+                divider = 0;
+                divider2++;
             }
-            return subjectName;
         }
+        return Math.round((avgGrade / divider2) * 100) / 100.0;
+    }
 
-        public static double getAverageGradeForSubject (List dataBase, String subjectName) {
-            double gradeSum = 0;
-            int divider = 0;
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Student) {
-                    for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size() ; j++) {
-                        if (((Student) dataBase.get(i)).getGradesForSubject().get(j).getSubject() == subjectName) {
-                            gradeSum += ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
-                            divider++;
-                        }
-                    }
-                }
-            }
-            return Math.round((gradeSum / divider) * 100) / 100;
-        }
-
-        public static String returnTeacherThatSignHighestGrades(List dataBase, String[] subjects) {
-            double highestSubjectGrade = 2;
-            String highestSubjectGradeName = "";
-            String teacher = "";
-            for (int i = 0; i < subjects.length; i++) {
-                if (highestSubjectGrade < getAverageGradeForSubject(dataBase, subjects[i])) {
-                    highestSubjectGrade = getAverageGradeForSubject(dataBase, subjects[i]);
-                    highestSubjectGradeName = subjects[i];
-                }
-            }
-
-            for (int i = 0; i < dataBase.size(); i++) {
-                if (dataBase.get(i) instanceof Teacher) {
-                    for (int j = 0; j < ((Teacher) dataBase.get(i)).getSubjects().length ; j++) {
-                        if (((Teacher) dataBase.get(i)).getSubjects()[j] == highestSubjectGradeName ) {
-                            teacher = ((Teacher) dataBase.get(i)).getName();
+    public static String highestStudentGradeForSubject(List dataBase, String studentName) {
+        double highestGrade = 2;
+        String subjectName = "";
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Student) {
+                if (((Student) dataBase.get(i)).getName() == studentName) {
+                    for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size(); j++) {
+                        if (highestGrade < ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades()) {
+                            highestGrade = ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
+                            subjectName = ((Student) dataBase.get(i)).getGradesForSubject().get(j).getSubject();
                         }
                     }
                 }
-            }
 
-            return teacher;
+            }
         }
+        return subjectName;
+    }
+
+    public static double getAverageGradeForSubject(List dataBase, String subjectName) {
+        double gradeSum = 0;
+        int divider = 0;
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Student) {
+                for (int j = 0; j < ((Student) dataBase.get(i)).getGradesForSubject().size(); j++) {
+                    if (((Student) dataBase.get(i)).getGradesForSubject().get(j).getSubject() == subjectName) {
+                        gradeSum += ((Student) dataBase.get(i)).getGradesForSubject().get(j).getGrades();
+                        divider++;
+                    }
+                }
+            }
+        }
+        return Math.round((gradeSum / divider) * 100) / 100;
+    }
+
+    public static String returnTeacherThatSignHighestGrades(List dataBase, String[] subjects) {
+        double highestSubjectGrade = 2;
+        String highestSubjectGradeName = "";
+        String teacher = "";
+        for (int i = 0; i < subjects.length; i++) {
+            if (highestSubjectGrade < getAverageGradeForSubject(dataBase, subjects[i])) {
+                highestSubjectGrade = getAverageGradeForSubject(dataBase, subjects[i]);
+                highestSubjectGradeName = subjects[i];
+            }
+        }
+
+        for (int i = 0; i < dataBase.size(); i++) {
+            if (dataBase.get(i) instanceof Teacher) {
+                for (int j = 0; j < ((Teacher) dataBase.get(i)).getSubjects().length; j++) {
+                    if (((Teacher) dataBase.get(i)).getSubjects()[j] == highestSubjectGradeName) {
+                        teacher = ((Teacher) dataBase.get(i)).getName();
+                    }
+                }
+            }
+        }
+
+        return teacher;
+    }
 
     public static void main(String[] args) {
         String[] subjects = {"Math", "English", "Geografiq"};
@@ -195,18 +195,13 @@ public class main2 {
         dataBase.add(Naidenkata);
         dataBase.add(Djaro);
 
-        //printInformation(dataBase);
-        //System.out.println(highestStudentGrade(dataBase, 0));
-        //System.out.println(lowestStudentGrade(dataBase, 0));
-        //System.out.println(averageSalary(dataBase));
-        //System.out.println(averageGradeOfStudent(dataBase, "Asparuh"));\
-        //System.out.println(highestStudentGrade(dataBase, "Math"));
-        //System.out.println(lowestStudentGrade(dataBase, "English"));
-        //System.out.println(highestStudentGrade(dataBase, "Physics"));
-        //System.out.println(averageSalary(dataBase));
-        //System.out.println(averageGradeOfStudent(dataBase, "Asparuh"));
-        //System.out.println(averageGradeOfClass(dataBase));
-        //System.out.println(highestStudentGradeForSubject(dataBase, "Asparuh"));
+        System.out.println(lowestStudentGrade(dataBase, "English"));
+        System.out.println(highestStudentGrade(dataBase, "Physics"));
+        System.out.println(highestStudentGrade(dataBase, "Math"));
+        System.out.println(averageSalary(dataBase));
+        System.out.println(averageGradeOfStudent(dataBase, "Asparuh"));
+        System.out.println(averageGradeOfClass(dataBase));
+        System.out.println(highestStudentGradeForSubject(dataBase, "Asparuh"));
         System.out.println(getAverageGradeForSubject(dataBase, "Math"));
         System.out.println(returnTeacherThatSignHighestGrades(dataBase, subjects));
     }
