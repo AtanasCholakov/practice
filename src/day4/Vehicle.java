@@ -15,30 +15,33 @@ public class Vehicle {
     public double getFuelConsumption() {
         return this.fuelConsumption;
     }
+
     public void setFuelConsumption(double fuelConsumption) {
         if (fuelConsumption <= 0) {
             throw new IllegalArgumentException();
-        }
-        else {
+        } else {
             this.fuelConsumption = fuelConsumption;
         }
 
     }
+
     public double getFuel() {
         return this.fuel;
     }
+
     public void setFuel(double fuel) {
         if (fuel < 0){
             throw new IllegalArgumentException();
-        }
-        else {
+        } else {
             this.fuel = fuel;
         }
+
 
     }
     public int getHorsePower() {
         return this.horsePower;
     }
+
     public void setHorsePower(int horsePower) {
         if (horsePower < 5) {
             throw new IllegalArgumentException();
@@ -52,14 +55,12 @@ public class Vehicle {
     public void drive(double kilometers) {
         if (kilometers <= 0) {
             throw new IllegalArgumentException();
-        }
-        else {
+        } else {
             double maxKilometers = (getFuel() / getFuelConsumption() * 100);
             double fuelLeft = getFuel() - (kilometers * getFuelConsumption() / 100);
             if (maxKilometers < kilometers) {
                 System.out.println("You can drive max " + maxKilometers + " kilometers with " + getFuel() + " liters fuel!");
-            }
-            else {
+            } else {
                 System.out.println("You will have " + fuelLeft + " liters left after you drive " + kilometers + " kilometers");
             }
         }
