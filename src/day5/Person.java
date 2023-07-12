@@ -1,9 +1,16 @@
 package day5;
 
 public class Person {
+
     private String name;
     private String gender;
     private int ID;
+
+    public Person(String name, String gender, int ID) {
+        this.name = name;
+        this.gender = gender;
+        this.ID = ID;
+    }
 
     public String getName() {
         return name;
@@ -29,9 +36,4 @@ public class Person {
         this.ID = ID;
     }
 
-    public Person(String name, String gender, int ID) {
-        this.name = name;
-        this.gender = gender;
-        this.ID = ID;
-    }
 }

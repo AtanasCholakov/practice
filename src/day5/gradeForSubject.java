@@ -4,6 +4,11 @@ public class gradeForSubject {
     private String subject;
     private double grades;
 
+    public gradeForSubject(String subject, double grades) {
+        this.subject = subject;
+        this.grades = grades;
+    }
+
     public String getSubject() {
         return subject;
     }
@@ -20,8 +25,4 @@ public class gradeForSubject {
         this.grades = grades;
     }
 
-    public gradeForSubject(String subject, double grades) {
-        this.subject = subject;
-        this.grades = grades;
-    }
 }

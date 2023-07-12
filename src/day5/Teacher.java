@@ -6,6 +6,13 @@ public class Teacher extends Person {
     private String[] subjects;
     private double salary;
 
+    public Teacher(String name, String gender, int ID, String school, String[] subjects, double salary) {
+        super(name, gender, ID);
+        this.school = school;
+        this.subjects = subjects;
+        this.salary = salary;
+    }
+
     public String getSchool() {
         return school;
     }
@@ -27,13 +34,6 @@ public class Teacher extends Person {
     }
 
     public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public Teacher(String name, String gender, int ID, String school, String[] subjects, double salary) {
-        super(name, gender, ID);
-        this.school = school;
-        this.subjects = subjects;
         this.salary = salary;
     }
 
