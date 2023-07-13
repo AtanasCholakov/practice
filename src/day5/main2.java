@@ -175,35 +175,38 @@ public class main2 {
     }
 
     public static void main(String[] args) {
-        String[] subjects = {"Math", "English", "Geografiq"};
+        String[] subjects = {"Math", "English", "Geography"};
         List<gradeForSubject> gradesForSubject = new ArrayList<>();
         gradesForSubject.add(new gradeForSubject("Math", 4));
         gradesForSubject.add(new gradeForSubject("English", 3.5));
-        gradesForSubject.add(new gradeForSubject("Geografiq", 4.49));
+        gradesForSubject.add(new gradeForSubject("Geography", 4.49));
         List<gradeForSubject> gradesForSubject2 = new ArrayList<>();
         gradesForSubject2.add(new gradeForSubject("Math", 6));
         gradesForSubject2.add(new gradeForSubject("English", 5.5));
-        gradesForSubject2.add(new gradeForSubject("Geografiq", 2.49));
-        Student Asparuh = new Student("Asparuh", "oshte ne e opredelil", 9898, 10, 1, gradesForSubject);
-        Student Stanka = new Student("Stanka", "jina", 787878, 8, 24, gradesForSubject2);
-        Teacher Naidenkata = new Teacher("Naiden Nikolov Atanasov", "MUJ", 89080, "teta", new String[]{"Geografiq", "Math"}, 5000);
-        Teacher Djaro = new Teacher("Petur Tudjarov", "MUJ", 7777, "teta", new String[]{"English", "vsichko"}, 9999);
+        gradesForSubject2.add(new gradeForSubject("Geography", 2.49));
+        Student Georgi = new Student("Georgi", "male", 98989898, 10, 1, gradesForSubject);
+        Student Stanka = new Student("Stanka", "female", 78787878, 8, 24, gradesForSubject2);
+        Teacher Ivan = new Teacher("Ivan Ivanov", "male", 89080432, "PGEE", new String[]{"Geography"}, 5000);
+        Teacher Ivo = new Teacher("Ivo Andonov", "male", 67812380, "PGEE", new String[]{"Math"}, 2000);
+        Teacher Zdravko = new Teacher("Zdravko Kiselov", "male", 77777777, "PGEE", new String[]{"English"}, 9999);
 
         List<Object> dataBase = new ArrayList();
-        dataBase.add(Asparuh);
+        dataBase.add(Georgi);
         dataBase.add(Stanka);
-        dataBase.add(Naidenkata);
-        dataBase.add(Djaro);
+        dataBase.add(Ivan);
+        dataBase.add(Ivo);
+        dataBase.add(Zdravko);
 
-        System.out.println(lowestStudentGrade(dataBase, "English"));
-        System.out.println(highestStudentGrade(dataBase, "Physics"));
-        System.out.println(highestStudentGrade(dataBase, "Math"));
-        System.out.println(averageSalary(dataBase));
-        System.out.println(averageGradeOfStudent(dataBase, "Asparuh"));
-        System.out.println(averageGradeOfClass(dataBase));
-        System.out.println(highestStudentGradeForSubject(dataBase, "Asparuh"));
-        System.out.println(getAverageGradeForSubject(dataBase, "Math"));
-        System.out.println(returnTeacherThatSignHighestGrades(dataBase, subjects));
+        printInformation(dataBase);
+        System.out.println(lowestStudentGrade(dataBase, "English") + " has the lowest grade in English!");
+        System.out.println(highestStudentGrade(dataBase, "Geography") + " has the highest grade in Geography!");
+        System.out.println(highestStudentGrade(dataBase, "Math") + " has the highest grade in Math!");
+        System.out.println("The average teacher salary is: " + averageSalary(dataBase));
+        System.out.println("Georgi's average grade is: " + averageGradeOfStudent(dataBase, "Georgi"));
+        System.out.println("The average grade of the class is: " + averageGradeOfClass(dataBase));
+        System.out.println("Georgi is best at: " + highestStudentGradeForSubject(dataBase, "Georgi"));
+        System.out.println("The average grade of math is: " + getAverageGradeForSubject(dataBase, "Math"));
+        System.out.println(returnTeacherThatSignHighestGrades(dataBase, subjects) + " signs the highest grades!");
     }
 }
 
